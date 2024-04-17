@@ -1,0 +1,22 @@
+
+<div class="navigation">
+    <nav class="main_navigation">
+      <ul class="flex">
+        <li><a href="{{ url_for('routes.home') }}">Home</a></li>
+        <li><a href="{{ url_for('routes.about') }}">About</a></li>
+        <li><a href="#">contacts</a></li>
+        <li><a href="#">pricing</a></li>
+      </ul>
+    </nav>
+    <div class="user-profile">
+      <ul class="flex">
+        {% if current_user.is_authenticated %}
+          <li><a href={{url_for("routes.account")}}>account</a></li>
+          <li><a href={{url_for("routes.logout")}}>logout</a></li>
+        {% else %}
+          <li><a href={{url_for("routes.login")}}>login</a></li>
+          <li><a href={{url_for("routes.register")}}>register</a></li>
+        {% endif %}
+      </ul>
+    </div>
+</div>
